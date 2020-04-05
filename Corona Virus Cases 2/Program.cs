@@ -43,7 +43,7 @@ namespace Corona_Virus_Cases_2
                     Console.WriteLine("Deaths Today :" + ItemData.todayDeaths);
                     Console.ForegroundColor = ConsoleColor.Green;
 
-                    Console.WriteLine("Recovered : " + ItemData.recovered);
+                    Console.WriteLine("Recovered  : " + ItemData.recovered);
 
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
 

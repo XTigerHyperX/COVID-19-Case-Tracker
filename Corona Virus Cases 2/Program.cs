@@ -4,9 +4,9 @@ using System.Text.Json;
 
 namespace Corona_Virus_Cases_2
 {
-    class Program
+    internal class Program
     {
-        static void Main()
+        internal static void Main()
         {
             Console.Title = "COVID-19 Case tracker";
             Utf8JsonReader jsonReader;
@@ -43,31 +43,38 @@ namespace Corona_Virus_Cases_2
             jsonReader.Read();
             jsonReader.Read();
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine($"Cases: {jsonReader.GetInt32()}");
+            Console.WriteLine($"Cases: {(jsonReader.TokenType == JsonTokenType.Number ? jsonReader.GetInt32() : null)}");
+
             jsonReader.Read();
             jsonReader.Read();
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine($"Cases Today: {jsonReader.GetInt32()}");
+            Console.WriteLine($"Cases Today: {(jsonReader.TokenType == JsonTokenType.Number ? jsonReader.GetInt32() : null)}");
+
             jsonReader.Read();
             jsonReader.Read();
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"Deaths: {jsonReader.GetInt32()}");
+            Console.WriteLine($"Deaths: {(jsonReader.TokenType == JsonTokenType.Number ? jsonReader.GetInt32() : null)}");
+
             jsonReader.Read();
             jsonReader.Read();
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine($"Deaths Today: {jsonReader.GetInt32()}");
+            Console.WriteLine($"Deaths Today: {(jsonReader.TokenType == JsonTokenType.Number ? jsonReader.GetInt32() : null)}");
+
             jsonReader.Read();
             jsonReader.Read();
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"Recovered : {jsonReader.GetInt32()}");
+            Console.WriteLine($"Recovered : {(jsonReader.TokenType == JsonTokenType.Number ? jsonReader.GetInt32() : null)}");
+
             jsonReader.Read();
             jsonReader.Read();
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.WriteLine($"Active Cases: {jsonReader.GetInt32()}");
+            Console.WriteLine($"Active Cases: {(jsonReader.TokenType == JsonTokenType.Number ? jsonReader.GetInt32() : null)}");
+
             jsonReader.Read();
             jsonReader.Read();
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine($"Critical Cases: {jsonReader.GetInt32()}");
+            Console.WriteLine($"Critical Cases: {(jsonReader.TokenType == JsonTokenType.Number ? jsonReader.GetInt32() : null)}");
+
             jsonReader.Read();
             jsonReader.Read();
             jsonReader.Read();
@@ -75,7 +82,8 @@ namespace Corona_Virus_Cases_2
             jsonReader.Read();
             jsonReader.Read();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($"Total tests: {jsonReader.GetInt32()}");
+            Console.WriteLine($"Total tests: {(jsonReader.TokenType == JsonTokenType.Number ? jsonReader.GetInt32() : null)}");
+
             goto Start;
         }
     }

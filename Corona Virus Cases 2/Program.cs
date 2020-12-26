@@ -11,7 +11,7 @@ namespace Corona_Virus_Cases_2
         static void Main(string[] args)
         {
             Console.Title = "COVID-19 Case tracker";
-        Start:
+            Start:
             Console.ForegroundColor = ConsoleColor.White;
 
             Console.WriteLine("Enter Country Name ");
@@ -45,11 +45,16 @@ namespace Corona_Virus_Cases_2
 
                     Console.WriteLine("Recovered  : " + ItemData.recovered);
 
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+
+                    Console.WriteLine("Critical  : " + ItemData.critical);
+                    Console.WriteLine("Total Tests  : " + ItemData.totalTests);
+
+
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
 
-                    int active = ItemData.cases - (ItemData.recovered + ItemData.deaths);
-                    Console.WriteLine("Active Cases: " + active);
 
+                    Console.WriteLine("Active Cases: " + ItemData.active);
 
                 }
                 goto Start;
@@ -58,7 +63,6 @@ namespace Corona_Virus_Cases_2
             {
                 Console.WriteLine("An Error Happened Make sure you entered a right country name ( starts with high case ) else Please contact @XTigerHyperX");
                 Console.ReadKey();
-
             }
         }
     }

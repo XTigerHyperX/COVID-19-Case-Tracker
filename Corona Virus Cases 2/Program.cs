@@ -10,6 +10,7 @@ namespace Corona_Virus_Cases_2
         {
             Console.Title = "COVID-19 Case tracker";
             Utf8JsonReader jsonReader;
+            WebClient client = new();
 
         Start:
             Console.ForegroundColor = ConsoleColor.White;
@@ -18,7 +19,6 @@ namespace Corona_Virus_Cases_2
             byte[] response;
             try
             {
-                WebClient client = new();
                 response = client.DownloadData($"https://coronavirus-19-api.herokuapp.com/countries/{country}");
             }
             catch (WebException)
@@ -87,4 +87,4 @@ namespace Corona_Virus_Cases_2
             goto Start;
         }
     }
-}
+}         

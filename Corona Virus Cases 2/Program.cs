@@ -87,6 +87,7 @@ namespace Corona_Virus_Cases_2
             Console.WriteLine($"Total tests: {(jsonReader.TokenType == JsonTokenType.Number ? jsonReader.GetInt32().ToString() : null)}");
 
             goto Start;
+
         }
     }
 }

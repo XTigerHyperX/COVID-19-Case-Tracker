@@ -4,4 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Corona_Virus_Cases_2</RootNamespace>
   </PropertyGroup>
+	<ItemGroup>
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	  <PackageReference Include="RestSharp" Version="106.12.0" />
+	</ItemGroup>
 </Project>

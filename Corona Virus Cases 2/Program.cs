@@ -73,8 +73,8 @@ namespace Corona_Virus_Cases_2
                 catch
                 {
                     Console.WriteLine(
-                        "Smth went wrong , endpoint might be down or an error with ur internet connection");
-                    Console.ReadKey();
+                        "Smth went wrong , endpoint might be down or an error with ur internet connection or maybe wrong country name");
+                    goto Start;
                 }
             }
         }

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Net;
-using Newtonsoft;
 using RestSharp;
 using Newtonsoft.Json;
 
@@ -18,50 +16,56 @@ namespace Corona_Virus_Cases_2
             string a = Console.ReadLine();
             try
             {
-                RestClient Client = new RestClient("https://coronavirus-19-api.herokuapp.com/countries/");
-                IRestRequest JSONRequest = new RestRequest(a);
-                IRestResponse JSONResponse = Client.Execute(JSONRequest);
-                JSONResponse.Content = "[" + JSONResponse.Content + "]";
+                RestClient client = new RestClient("https://coronavirus-19-api.herokuapp.com/countries/");
+                IRestRequest jsonRequest = new RestRequest(a);
+                IRestResponse jsonResponse = client.Execute(jsonRequest);
+                jsonResponse.Content = "[" + jsonResponse.Content + "]";
 
-                dynamic Data = JsonConvert.DeserializeObject(JSONResponse.Content);
+                dynamic data = JsonConvert.DeserializeObject(jsonResponse.Content);
 
-                foreach (dynamic ItemData in Data)
-                {
+                if (data != null)
+                    foreach (dynamic itemData in data)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine("Cases: " + itemData.cases);
+                        
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("Cases Today : " + itemData.todayCases);
+                        
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("Active Cases: " + itemData.active);
 
-                    Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\nDeaths : " + itemData.deaths);
+                        
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("Deaths Today :" + itemData.todayDeaths);
+                        
+                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                        Console.WriteLine("Critical  : " + itemData.critical);
+                        
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("\nRecovered  : " + itemData.recovered);
 
-                    Console.WriteLine("cases  " + ItemData.cases);
-                    Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("Total Tests  : " + itemData.totalTests);
 
-                    Console.WriteLine("Cases Today : " + ItemData.todayCases);
+                        Console.ForegroundColor = ConsoleColor.DarkCyan;
+                        Console.WriteLine("\nCases Per One Million : " + itemData.casesPerOneMillion);
+                        
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine("Deaths Per One Million : " + itemData.deathsPerOneMillion);
+                        
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("Tests Per One Million : " + itemData.testsPerOneMillion);
 
-                    Console.ForegroundColor = ConsoleColor.Red;
-
-                    Console.WriteLine("Deaths : " + ItemData.deaths);
-                    Console.ForegroundColor = ConsoleColor.DarkRed;
-
-                    Console.WriteLine("Deaths Today :" + ItemData.todayDeaths);
-                    Console.ForegroundColor = ConsoleColor.Green;
-
-                    Console.WriteLine("Recovered  : " + ItemData.recovered);
-
-                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
-
-                    Console.WriteLine("Critical  : " + ItemData.critical);
-                    Console.WriteLine("Total Tests  : " + ItemData.totalTests);
-
-
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-
-
-                    Console.WriteLine("Active Cases: " + ItemData.active);
-
-                }
+                    }
+                
                 goto Start;
             }
             catch
             {
-                Console.WriteLine("An Error Happened Make sure you entered a right country name ( starts with high case ) else Please contact @XTigerHyperX");
+                Console.WriteLine("Smth went wrong , endpoint might be down or an error with ur internet connection");
                 Console.ReadKey();
             }
         }

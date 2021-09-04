@@ -34,37 +34,37 @@ namespace Corona_Virus_Cases_2
                         foreach (dynamic itemData in data)
                         {
                             Console.ForegroundColor = ConsoleColor.Magenta;
-                            Console.WriteLine("Cases: " + itemData.cases);
+                            Console.WriteLine("Cases: " +((decimal)itemData.cases).FormatValue());
 
                             Console.ForegroundColor = ConsoleColor.Cyan;
-                            Console.WriteLine("Cases Today : " + itemData.todayCases);
+                            Console.WriteLine("Cases Today : " +((decimal)itemData.todayCases).FormatValue());
 
                             Console.ForegroundColor = ConsoleColor.DarkYellow;
-                            Console.WriteLine("Active Cases: " + itemData.active);
+                            Console.WriteLine("Active Cases: " + ((decimal)itemData.active).FormatValue());
 
                             Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("\nDeaths : " + itemData.deaths);
+                            Console.WriteLine("\nDeaths : " + ((decimal)itemData.deaths).FormatValue());
 
                             Console.ForegroundColor = ConsoleColor.DarkRed;
-                            Console.WriteLine("Deaths Today :" + itemData.todayDeaths);
+                            Console.WriteLine("Deaths Today :" + ((decimal)itemData.todayDeaths).FormatValue());
 
                             Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                            Console.WriteLine("Critical  : " + itemData.critical);
+                            Console.WriteLine("Critical  : " + ((decimal)itemData.critical).FormatValue());
 
                             Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("\nRecovered  : " + itemData.recovered);
+                            Console.WriteLine("\nRecovered  : " + ((decimal)itemData.recovered).FormatValue());
 
                             Console.ForegroundColor = ConsoleColor.DarkYellow;
-                            Console.WriteLine("Total Tests  : " + itemData.totalTests);
+                            Console.WriteLine("Total Tests  : " + ((decimal)itemData.totalTests).FormatValue());
 
                             Console.ForegroundColor = ConsoleColor.DarkCyan;
-                            Console.WriteLine("\nCases Per One Million : " + itemData.casesPerOneMillion);
+                            Console.WriteLine("\nCases Per One Million : " + ((decimal)itemData.casesPerOneMillion).FormatValue());
 
                             Console.ForegroundColor = ConsoleColor.Blue;
-                            Console.WriteLine("Deaths Per One Million : " + itemData.deathsPerOneMillion);
+                            Console.WriteLine("Deaths Per One Million : " + ((decimal)itemData.deathsPerOneMillion).FormatValue());
 
                             Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine("Tests Per One Million : " + itemData.testsPerOneMillion);
+                            Console.WriteLine("Tests Per One Million : " + ((decimal)itemData.testsPerOneMillion).FormatValue() + "\n");
 
                         }
 
